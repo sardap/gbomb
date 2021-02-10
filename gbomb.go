@@ -35,7 +35,6 @@ func (i *Invoker) requestLimiter() {
 func (i *Invoker) get(pageable Pageable) ([]byte, error) {
 	url := fmt.Sprintf("%s/%s", i.Endpoint, pageable.Path())
 
-	client := &http.Client{}
 	req, err := http.NewRequest(
 		"GET", url, nil,
 	)
@@ -55,7 +54,7 @@ func (i *Invoker) get(pageable Pageable) ([]byte, error) {
 	req.URL.RawQuery = q.Encode()
 
 	i.requestLimiter()
-	res, err := client.Do(req)
+	res, err := i.client.Do(req)
 	if err != nil {
 		return nil, err
 	}
@@ -85,6 +84,42 @@ type Pageable interface {
 	Path() string
 }
 
+//Date a giant bomb time
+type Date struct {
+	date string
+}
+
+//UnmarshalJSON custom json unmarshaler
+func (d *Date) UnmarshalJSON(data []byte) error {
+	//someone \" are being included
+	d.date = string(data[1 : len(data)-1])
+	return nil
+}
+
+//String returns date as string
+func (d *Date) String() string {
+	return d.date
+}
+
+//GetTime converts from giant bomb date to time.Time
+func (d *Date) GetTime() time.Time {
+	var layout string
+	if len(d.date) == 19 {
+		layout = "2006-01-02 15:04:05"
+	} else if len(d.date) == 10 {
+		layout = "2006-01-02"
+	} else {
+		layout = ""
+	}
+
+	result, _ := time.Parse(
+		layout,
+		string(d.date),
+	)
+
+	return result
+}
+
 //Image a giant bomb API Image
 type Image struct {
 	IconURL        string `json:"icon_url"`
@@ -97,6 +132,37 @@ type Image struct {
 	TinyURL        string `json:"tiny_url"`
 	OriginalURL    string `json:"original_url"`
 	ImageTags      string `json:"image_tags"`
+}
+
+//Tag tag
+type Tag struct {
+	APIDetailURL string `json:"api_detail_url"`
+	Name         string `json:"name"`
+}
+
+//ImageTag a giant bomb API image tag
+type ImageTag struct {
+	Tag
+	Total int `json:"total"`
+}
+
+//GameRatingTag GameRatingTag
+type GameRatingTag struct {
+	Tag
+	ID int `json:"id"`
+}
+
+//CompleteTag CompleteTag
+type CompleteTag struct {
+	Tag
+	ID            int    `json:"id"`
+	SiteDetailURL string `json:"site_detail_url"`
+}
+
+//PlatformTag PlatformTag
+type PlatformTag struct {
+	CompleteTag
+	Abbreviation string `json:"abbreviation"`
 }
 
 //VideoShow Giant bomb api VideoShow
@@ -139,7 +205,7 @@ type VideoInfo struct {
 	LengthSeconds   int             `json:"length_seconds"`
 	Name            string          `json:"name"`
 	Premium         bool            `json:"premium"`
-	PublishDate     string          `json:"publish_date"`
+	PublishDate     Date            `json:"publish_date"`
 	User            string          `json:"user"`
 	Hosts           string          `json:"Hosts"`
 	Crew            string          `json:"crew"`
@@ -182,10 +248,49 @@ func (v *VideoInfo) GetBestQuailtyURL() string {
 	return v.GetHighestURL()
 }
 
-//PublishDateTime will return publish date as Time
-func (v *VideoInfo) PublishDateTime() time.Time {
-	res, _ := time.Parse(giantBombTimeFormat, v.PublishDate)
-	return res
+//Game a game
+type Game struct {
+	Aliases                   string          `json:"aliases"`
+	APIDetailURL              string          `json:"api_detail_url"`
+	SiteDetailURL             string          `json:"site_detail_url"`
+	GUID                      string          `json:"guid"`
+	ID                        int             `json:"id"`
+	DateAdded                 Date            `json:"date_added"`
+	DateLastUpdate            Date            `json:"date_last_updated"`
+	Deck                      string          `json:"dec"`
+	Description               string          `json:"description"`
+	ExpectedReleaseDay        string          `json:"expected_release_day"`
+	ExpectedReleaseMonth      string          `json:"expected_release_month"`
+	ExpectedReleaseQuarter    string          `json:"expected_release_quarter"`
+	ExpectedReleaseYear       string          `json:"expected_release_year"`
+	Image                     Image           `json:"image"`
+	ImageTags                 []ImageTag      `json:"image_tags"`
+	Images                    []Image         `json:"images"`
+	Name                      string          `json:"name"`
+	NumberOfUserReviews       int             `json:"number_of_user_reviews"`
+	OriginalGameRating        []GameRatingTag `json:"original_game_rating"`
+	OriginalReleaseDate       Date            `json:"original_release_date"`
+	Platforms                 []PlatformTag   `json:"platforms"`
+	Videos                    []CompleteTag   `json:"videos"`
+	Characters                []CompleteTag   `json:"characters"`
+	Concepts                  []CompleteTag   `json:"concepts"`
+	Developers                []CompleteTag   `json:"developers"`
+	FirstAppearanceCharacters []CompleteTag   `json:"first_appearance_characters"`
+	FirstAppearanceConcepts   []CompleteTag   `json:"first_appearance_concepts"`
+	FirstAppearanceLocations  []CompleteTag   `json:"first_appearance_locations"`
+	FirstAppearancePeople     []CompleteTag   `json:"first_appearance_people"`
+	Franchises                []CompleteTag   `json:"franchises"`
+	Genres                    []CompleteTag   `json:"genres"`
+	KilledCharacters          []CompleteTag   `json:"killed_characters"`
+	Locations                 []CompleteTag   `json:"locations"`
+	Objects                   []CompleteTag   `json:"objects"`
+	Persons                   []CompleteTag   `json:"people"`
+	Publishers                []CompleteTag   `json:"publishers"`
+	Releases                  []CompleteTag   `json:"releases"`
+	DLCS                      []CompleteTag   `json:"dlcs"`
+	Reviews                   []CompleteTag   `json:"reviews"`
+	SimilarGames              []CompleteTag   `json:"similar_games"`
+	Themes                    []CompleteTag   `json:"themes"`
 }
 
 //ResponsePage the page part of a response
@@ -286,6 +391,38 @@ func (i *Invoker) DownloadVideo(ctx context.Context, url string) (io.ReadCloser,
 
 	return res.Body, nil
 }
+
+type gameResponseInternal struct {
+	ResponsePage
+	Results   *Game `json:"results"`
+	tagetGame string
+}
+
+//Path returns video path
+func (g *gameResponseInternal) Path() string {
+	return fmt.Sprintf("api/game/%s", g.tagetGame)
+}
+
+//GetGame returns a given game
+func (i *Invoker) GetGame(ctx context.Context, gameID string) (*Game, error) {
+	result := &gameResponseInternal{}
+	result.Offset = 0
+	result.ResponsePage.Limit = 100
+	result.MaxResults = 100
+
+	result.tagetGame = gameID
+
+	body, err := i.get(result)
+	if err != nil {
+		return nil, err
+	}
+
+	err = json.Unmarshal(body, result)
+
+	return result.Results, err
+}
+
+// #####################################################################
 
 //RSSFeedEntry a giant bomb RSS feed entry
 type RSSFeedEntry struct {
