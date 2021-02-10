@@ -3,10 +3,12 @@ package gbomb
 import (
 	"context"
 	"encoding/json"
+	"encoding/xml"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
+	"strings"
 	"time"
 
 	"golang.org/x/time/rate"
@@ -14,11 +16,16 @@ import (
 
 const giantBombTimeFormat = "2006-01-02 15:04:05"
 
+type httpClient interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+
 //Invoker Invoker
 type Invoker struct {
 	Endpoint string
 	APIKey   string
 	limter   *rate.Limiter
+	client   httpClient
 }
 
 func (i *Invoker) requestLimiter() {
@@ -67,6 +74,7 @@ func CreateInvoker(endpoint, key string) *Invoker {
 	return &Invoker{
 		Endpoint: endpoint, APIKey: key,
 		limter: rate.NewLimiter(rate.Every(time.Duration(31)*time.Second), 1),
+		client: http.DefaultClient,
 	}
 }
 
@@ -262,7 +270,6 @@ func (i *Invoker) GetVideos(ctx context.Context, offset int) (*VideosResponse, e
 
 //DownloadVideo downloads a given video
 func (i *Invoker) DownloadVideo(ctx context.Context, url string) (io.ReadCloser, error) {
-	client := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
@@ -272,10 +279,102 @@ func (i *Invoker) DownloadVideo(ctx context.Context, url string) (io.ReadCloser,
 	req.URL.RawQuery = q.Encode()
 
 	i.requestLimiter()
-	res, err := client.Do(req)
+	res, err := i.client.Do(req)
 	if err != nil {
 		return nil, err
 	}
 
 	return res.Body, nil
+}
+
+//RSSFeedEntry a giant bomb RSS feed entry
+type RSSFeedEntry struct {
+	Title      string `xml:"title"`
+	PubDateStr string `xml:"pubDate"`
+	GUID       string `xml:"guid"`
+	//This is constructed not pulled
+	link string
+}
+
+//GetPublishTime returns the publish time as a time object
+func (r *RSSFeedEntry) GetPublishTime() (time.Time, error) {
+	return time.Parse("Mon, 02 Jan 2006 15:04:05 MST", r.PubDateStr)
+}
+
+//Download returns a IO read Write closer of the download stream for an rss feed entry
+func (r *RSSFeedEntry) Download(i *Invoker) (io.ReadCloser, error) {
+	req, err := http.NewRequest("GET", r.link, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	q := req.URL.Query()
+	q.Add("api_key", i.APIKey)
+	req.URL.RawQuery = q.Encode()
+
+	i.requestLimiter()
+	res, err := i.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+
+	return res.Body, nil
+}
+
+//RSSChannel a Giant bomb RSS channel
+type RSSChannel struct {
+	Title   string         `xml:"title"`
+	Entries []RSSFeedEntry `xml:"item"`
+}
+
+type rssBase struct {
+	Channel RSSChannel `xml:"channel"`
+}
+
+//GetPodcasts returns the RSSChannel Feed
+func (i *Invoker) GetPodcasts(feed string) (*RSSChannel, error) {
+	var middle string
+	if feed == "bombcast" {
+		middle = "feeds"
+		feed = "podcast"
+	} else {
+		middle = "podcast-xml"
+	}
+	url := fmt.Sprintf("%s/%s/%s/", i.Endpoint, middle, feed)
+
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
+	q := req.URL.Query()
+	q.Add("api_key", i.APIKey)
+	req.URL.RawQuery = q.Encode()
+
+	i.requestLimiter()
+	res, err := i.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	bodyXML, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	var rss rssBase
+	err = xml.Unmarshal([]byte(bodyXML), &rss)
+	if err != nil {
+		return nil, err
+	}
+
+	for i := range rss.Channel.Entries {
+		guid := strings.Split(rss.Channel.Entries[i].GUID, "-")[1]
+		rss.Channel.Entries[i].link = fmt.Sprintf(
+			"https://dts.podtrac.com/redirect.mp3/www.giantbomb.com/podcasts/download/%s/audio.mp3",
+			guid,
+		)
+	}
+
+	return &rss.Channel, nil
 }
