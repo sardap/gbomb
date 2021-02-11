@@ -1,0 +1,662 @@
+{
+    "error": "OK",
+    "limit": 10,
+    "offset": 0,
+    "number_of_page_results": 10,
+    "number_of_total_results": 236,
+    "status_code": 1,
+    "results": [
+        {
+            "aliases": "Bakuretsu Muteki Bangai-O",
+            "api_detail_url": "https://www.giantbomb.com/api/game/3030-16481/",
+            "date_added": "2008-04-01 16:27:42",
+            "date_last_updated": "2018-06-23 14:03:00",
+            "deck": "Play as a missile shooting, space traveling mech in this Dreamcast cult classic.",
+            "description": "<h2>Overview</h2><p>Bakuretsu Muteki Bangai-O (roughly translated as Explosive, Invincible Bangaioh) is a multi-directional shooter developed by <a href=\"/treasure/3010-1843/\" data-ref-id=\"3010-1843\">Treasure Co., Limited</a> released as a Japanese exclusive for the <a href=\"/nintendo-64/3045-43/\" data-ref-id=\"3045-43\">Nintendo 64</a> on September 3rd, 1999. The game was later released in North America and Europe under the simplified Bangai-O, though it was exclusive to the <a href=\"/dreamcast/3045-37/\" data-ref-id=\"3045-37\">Sega Dreamcast</a> rather than the Nintendo 64. </p><p>In the game, players take control of a single mecha known as the Bangaioh, piloted by two young pilots by the names of Riki and Mami. The plot is the same as almost every shmup: an evil contraband menace (called the \"Cosmo Gang\" in this game) are out to destroy Earth and the player must protect it.</p><h2>Gameplay</h2><p>The controls in Bangai-O will also be familiar to any long-time shoot-'em-up player: the Bangaioh can move in eight directions, controlled by either the D-pad or the joystick. The ship can also fire in eight directions, controlled by the four yellow buttons and the A and B buttons on the controller.</p><p>However, Bangaioh does have its own unique elements to differentiate it from other shmups of the era. The Bangaioh has two firing modes that are represented by the pilot in control. If Riki is in control, red homing missiles are fired by the \"special attack\" button. If Mami is in control, blue lasers that bounce off of walls are fired. One can also use a 360 move in conjunction with the special attacks, in which 40-400 shots will be fired in a 360 spurt at all the nearest enemy bullets and enemies, with the amount of shots fired depending on quantity and proximity of the enemies and the enemies' bullets. For homing missiles, the missiles split up and target the nearest enemies and bullets, whilst the lasers automatically hit one target and bounce away.</p><figure data-align=\"right\" data-img-src=\"https://static.giantbomb.com/uploads/original/0/221/1359798-b1.jpg\" data-ref-id=\"1300-1359798\" data-size=\"small\" data-ratio=\"0.75\" data-width=\"368\" data-embed-type=\"image\" style=\"width: 368px\"><a class=\"fluid-height\" style=\"padding-bottom:75.0%\" href=\"https://static.giantbomb.com/uploads/original/0/221/1359798-b1.jpg\" data-ref-id=\"1300-1359798\"><img alt=\" The laser 360 attack being used.\" src=\"https://giantbomb1.cbsistatic.com/uploads/scale_small/0/221/1359798-b1.jpg\" srcset=\"https://giantbomb1.cbsistatic.com/uploads/original/0/221/1359798-b1.jpg 368w, https://giantbomb1.cbsistatic.com/uploads/scale_small/0/221/1359798-b1.jpg 320w\" sizes=\"(max-width: 320px) 100vw, 320px\" data-width=\"320\"></a><figcaption> The laser 360 attack being used.</figcaption></figure><p>At the beginning of the level, two 360 attacks are given. A total of 10 can be obtained per level by racking up combo points based on the amount of enemies or enemy ammunition destroyed. Upon reaching 100 combo points or more, the player can choose to gain the attack, refill their life, take a massive point boost, or temporary invincibility. Different levels of these power-ups can be obtained, and are based on how many combo points the player has. </p><p> </p><p><b>Differences between Nintendo 64 and Dreamcast versions:</b></p><ul><li>The Dreamcast version utilizes an explosion meter rather than a combo system to gain special attacks. The meter is filled based on the size of explosions made when enemy ammunition and enemies are destroyed. </li><li>The game's special attack is much more effective in the Dreamcast version, and can not be charged, unlike in the Nintendo 64 version.</li><li>In the Dreamcast version, Riki's shots do more damage than Mami's shots. Mami's shots are also semi-homing following a bounce.</li></ul><p> </p><h2>Soundtrack</h2><p>The soundtrack to the Nintendo 64 version of Bangai-O was composed by <a href=\"/toshiya-yamanaka/3040-10324/\" data-ref-id=\"3040-10324\">Toshiya Yamanaka</a> and Aki Hata, while the Dreamcast version was composed by <a href=\"/norio-hanzawa/3040-58331/\" data-ref-id=\"3040-58331\">Norio Hanzawa</a> (under his alias NON). The soundtrack did not see an official release until 2008, when it was released as a 3CD set titled '<i>BANGAI-O SPIRITS Audio Collection Plus</i>', which compiled the music from the Dreamcast and Nintendo 64 versions of the game, along with the music from <a href=\"/bangai-o-spirits/3030-20480/\" data-ref-id=\"3030-20480\">Bangai-O Spirits</a>. </p><p> </p><table><tbody><tr><th>Nintendo 64 Soundtrack</th><th>Dreamcast Soundtrack</th></tr><tr><td><ol><li>Story Demo BGM</li><li>Title BGM</li><li>Name Entry BGM</li><li>Stage Select BGM</li><li>Stage BGM 4</li><li>Vs. Boss Conversation Demo BGM</li><li>Boss Battle BGM</li><li>Stage Clear BGM</li><li>Stage BGM 8 </li><li>Stage BGM 7</li><li>Stage BGM 2</li><li>Stage BGM 9</li><li>Stage BGM 1</li><li>Stage BGM 10</li><li>Stage BGM 5 </li><li>Stage BGM 3 </li><li>Stage BGM 6 </li><li>Continue BGM 1 </li><li>Continue BGM 2 </li><li>Game Over BGM </li><li>Power Up BGM </li><li>System BGM </li><li>Ending Staff Roll BGM </li><li>N64 Version SE Collection</li></ol></td><td><ol><li>The \"First\" Story </li><li>Be Brave, Bangai-O </li><li>Entry, Yeah! </li><li>Come Now, to the Battlefront </li><li>K.O.! Kosmo </li><li>Mrs. M </li><li>Thrilling Smile </li><li>Speech </li><li>Machine! Core </li><li>How Delightful, Clear~!! </li><li>Step of Battle </li><li>Now, a Challenge! </li><li>The Beautiful Love of an Older Brother and Younger Sister </li><li>Sorrowful Melody </li><li>Deeper and Deeper, Sinking </li><li>Come, Forward, Forward! </li><li>Sorrowful Beat </li><li>Now Starts the Main Act </li><li>Hot Feelings! Male </li><li>••••man! The Place of Victory </li><li>Being Ashamed </li><li>Aim for Victory </li><li>The Struggle Between the Mission and Fatigue </li><li>Rhythm of Applause </li><li>Beat of Shifting Gears and Shifting Again </li><li>Absolute Perfection </li><li>K.O.! The Strongest Foe </li><li>Victory </li><li>Memory of Tears of Gratitude </li><li>The Road to Glory ~ Staff Roll</li></ol></td></tr></tbody></table>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-16481",
+            "id": 16481,
+            "image": {
+                "icon_url": "https://giantbomb1.cbsistatic.com/uploads/square_avatar/8/87790/2958407-box_bgo.png",
+                "medium_url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/8/87790/2958407-box_bgo.png",
+                "screen_url": "https://giantbomb1.cbsistatic.com/uploads/screen_medium/8/87790/2958407-box_bgo.png",
+                "screen_large_url": "https://giantbomb1.cbsistatic.com/uploads/screen_kubrick/8/87790/2958407-box_bgo.png",
+                "small_url": "https://giantbomb1.cbsistatic.com/uploads/scale_small/8/87790/2958407-box_bgo.png",
+                "super_url": "https://giantbomb1.cbsistatic.com/uploads/scale_large/8/87790/2958407-box_bgo.png",
+                "thumb_url": "https://giantbomb1.cbsistatic.com/uploads/scale_avatar/8/87790/2958407-box_bgo.png",
+                "tiny_url": "https://giantbomb1.cbsistatic.com/uploads/square_mini/8/87790/2958407-box_bgo.png",
+                "original_url": "https://giantbomb1.cbsistatic.com/uploads/original/8/87790/2958407-box_bgo.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-16481/?filter=image_tag%3AAll%20Images",
+                    "name": "All Images",
+                    "total": 9
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-16481/?filter=image_tag%3ABanner",
+                    "name": "Banner",
+                    "total": 1
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-16481/?filter=image_tag%3ABox%20Art",
+                    "name": "Box Art",
+                    "total": 3
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-16481/?filter=image_tag%3AClear%20Logo",
+                    "name": "Clear Logo",
+                    "total": 1
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-16481/?filter=image_tag%3ADC%20Screenshots",
+                    "name": "DC Screenshots",
+                    "total": 4
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-16481/?filter=image_tag%3AN64%20Screenshots",
+                    "name": "N64 Screenshots",
+                    "total": 1
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-16481/?filter=image_tag%3AScreenshots",
+                    "name": "Screenshots",
+                    "total": 4
+                }
+            ],
+            "name": "Bangai-O!",
+            "number_of_user_reviews": 0,
+            "original_game_rating": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/game_rating/3065-6/",
+                    "id": 6,
+                    "name": "ESRB: E"
+                }
+            ],
+            "original_release_date": "2001-03-21",
+            "platforms": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-37/",
+                    "id": 37,
+                    "name": "Dreamcast",
+                    "site_detail_url": "https://www.giantbomb.com/dreamcast/3045-37/",
+                    "abbreviation": "DC"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-43/",
+                    "id": 43,
+                    "name": "Nintendo 64",
+                    "site_detail_url": "https://www.giantbomb.com/nintendo-64/3045-43/",
+                    "abbreviation": "N64"
+                }
+            ],
+            "site_detail_url": "https://www.giantbomb.com/bangai-o/3030-16481/",
+            "resource_type": "game"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https://www.giantbomb.com/api/game/3030-20480/",
+            "date_added": "2008-05-12 22:06:55",
+            "date_last_updated": "2017-08-21 06:04:50",
+            "deck": "Originally released on the N64 and Dreamcast, this Treasure franchise is getting a second life on the DS.",
+            "description": "<h2>Overview</h2>Bangai-O Spirits is the sequel to Bangai-O, and is a multi-directional shooter developed by <a data-ref-id=\"3010-1843\" href=\"/treasure/3010-1843/\" slug=\"treasure\">Treasure</a> and released for the <a data-ref-id=\"3045-52\" href=\"/nintendo-ds/3045-52/\" slug=\"nintendo-ds\">Nintendo DS</a> in 2008. In Bangai-O Spirits, the player controls a robot with the ability to fly and must navigate through levels spanning 2D. These levels can extend horizontally or vertically and have gravity which effects the robots trajectory.<br/> <br/>The game features a unique way of transferring custom levels between DSs: sound encoding. Using this technique, the levels are encoded into a sound file so they can be shared using online video aggregator sites. By simply holding the DS close to speakers playing these encoded files, the microphone picks it up and receives the level. There are 160 original levels included on the cartridge. <br/><br/><h2>Gameplay</h2>Several gameplay changes have been made since Bangai-O.<br/><br/><h3>Weapons</h3> <br/>New weapons are available to choose from such as various missiles, melee weapons and a defensive shield. <br/><br/><h3><figure data-align=\"right\" data-embed-type=\"image\" data-img-src=\"https://static.giantbomb.com/api/image/original/103880-Bangai O Spirits_08_02.22.08.jpg\" data-ref-id=\"1300-103880\" data-size=\"medium\" data-ratio=\"0\"><a  href=\"https://static.giantbomb.com/api/image/original/103880-Bangai O Spirits_08_02.22.08.jpg\" data-ref-id=\"1300-103880\"><img alt=\"Charged EX Attack\" src=\"https://static.giantbomb.com/api/image/scale_medium/103880-Bangai O Spirits_08_02.22.08.jpg\"></a><figcaption>Charged EX Attack</figcaption></figure>EX Weapons</h3> <br/>Homing, napalm, rebound, break, direction, reflector and freeze are all EX Weapons available to the player.  Only two can be chosen by the player.  In previous games you could not combine EX Attacks.  You can also use an EX Attack which can be charged and will then release missiles.  The longer you charge, or the closer you are to enemy projectiles, the more missiles will be unleashed with a maximum of 100.  The freeze EX Attack will freeze the screen while the direction EX Attack focuses your attack on a single enemy. <br/><br/><h3>Other Abilities</h3> <br/><ul class=\"plain-list\"><li>Dashing is a new ability which makes the robot run quickly, which can damage and knock back enemies.  However, the player cannot fire while dashing. </li><li>Knocking enemies back is also a new feature and can only be accomplished using the bat, dash or relect EX Attack.  A knocked enemy will fly backwards, knocking down other enemies.</li></ul>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-20480",
+            "id": 20480,
+            "image": {
+                "icon_url": "https://giantbomb1.cbsistatic.com/uploads/square_avatar/8/87790/2958406-box_bgos.png",
+                "medium_url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/8/87790/2958406-box_bgos.png",
+                "screen_url": "https://giantbomb1.cbsistatic.com/uploads/screen_medium/8/87790/2958406-box_bgos.png",
+                "screen_large_url": "https://giantbomb1.cbsistatic.com/uploads/screen_kubrick/8/87790/2958406-box_bgos.png",
+                "small_url": "https://giantbomb1.cbsistatic.com/uploads/scale_small/8/87790/2958406-box_bgos.png",
+                "super_url": "https://giantbomb1.cbsistatic.com/uploads/scale_large/8/87790/2958406-box_bgos.png",
+                "thumb_url": "https://giantbomb1.cbsistatic.com/uploads/scale_avatar/8/87790/2958406-box_bgos.png",
+                "tiny_url": "https://giantbomb1.cbsistatic.com/uploads/square_mini/8/87790/2958406-box_bgos.png",
+                "original_url": "https://giantbomb1.cbsistatic.com/uploads/original/8/87790/2958406-box_bgos.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-20480/?filter=image_tag%3AAll%20Images",
+                    "name": "All Images",
+                    "total": 28
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-20480/?filter=image_tag%3ABox%20Art",
+                    "name": "Box Art",
+                    "total": 5
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-20480/?filter=image_tag%3AConcept%20and%20Promotional%20Art",
+                    "name": "Concept and Promotional Art",
+                    "total": 2
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-20480/?filter=image_tag%3ADS%20Screenshots",
+                    "name": "DS Screenshots",
+                    "total": 20
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-20480/?filter=image_tag%3AScreenshots",
+                    "name": "Screenshots",
+                    "total": 10
+                }
+            ],
+            "name": "Bangai-O Spirits",
+            "number_of_user_reviews": 0,
+            "original_game_rating": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/game_rating/3065-25/",
+                    "id": 25,
+                    "name": "CERO: A"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/game_rating/3065-29/",
+                    "id": 29,
+                    "name": "ESRB: E10+"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/game_rating/3065-18/",
+                    "id": 18,
+                    "name": "PEGI: 7+"
+                }
+            ],
+            "original_release_date": "2008-08-12",
+            "platforms": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-52/",
+                    "id": 52,
+                    "name": "Nintendo DS",
+                    "site_detail_url": "https://www.giantbomb.com/nintendo-ds/3045-52/",
+                    "abbreviation": "DS"
+                }
+            ],
+            "site_detail_url": "https://www.giantbomb.com/bangai-o-spirits/3030-20480/",
+            "resource_type": "game"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https://www.giantbomb.com/api/game/3030-32512/",
+            "date_added": "2010-08-31 11:47:02",
+            "date_last_updated": "2014-08-08 18:37:39",
+            "deck": "Bangai-O HD is the first installment in Treasure's Bangai-O series to be released on an HD console, exclusively on the Xbox 360 via the Xbox Live Marketplace.",
+            "description": "<h2>Overview</h2><p>Bangai-O HD is the third installment in Treasure's <a data-ref-id=\"3025-1825\" href=\"/bangai-o/3025-1825/\" slug=\"bangai-o\">tactile, missile-focused focused series</a>, developed solely for the Xbox 360. Like in previous entries in the series, players are tasked with piloting a flying robot in order to complete each level despite seemingly impossible odds, often in the forms of heavy artillery fire and missile from the enemy. The specific equipment and weapons that the robot has at its disposal vary from level-to-level, therefore accenting the main combat-oriented gameplay with puzzle elements, although the one universal constant is that the player, too, can fire a barrage of missiles back at the enemies, the number, size, and characteristics of which are dependent on the circumstances. Like the previous game, <a data-ref-id=\"3030-20480\" href=\"/bangai-o-spirits/3030-20480/\" slug=\"bangai-o-spirits\">Bangai-O Spirits</a>, Bangai-O HD features a level editor that ties into Xbox Live for sharing purposes. A co-op mode is also included in the game.</p><h2>Graphical Technology</h2><p>Although previous installments in the Bangai-O series have suffered from significant frame-rate drops during intensive, sprite-heavy sequences, Bangai-O seeks to rectify that by utilizing the greater power the Xbox 360 compared to that of <a data-ref-id=\"3045-43\" href=\"/nintendo-64/3045-43/\" slug=\"nintendo-64\">Nintendo 64</a>, <a data-ref-id=\"3045-52\" href=\"/nintendo-ds/3045-52/\" slug=\"nintendo-ds\">DS</a>, and <a data-ref-id=\"3045-37\" href=\"/dreamcast/3045-37/\" slug=\"dreamcast\">Dreamcast</a>. As a result of that, Bangai-O HD is the first in the series to achieve a stable frame rate, even when the action is heavy and intense with missiles flying everywhere. Players are therefore able to fire up to 1000 missiles simultaneously at any given time, with the game in general able to handle 5000 objects on the screen in total.</p><h2>Gameplay</h2><p>The main mode of the game consists of 47 challenging stages, each which different goals and limitations. Some stages require the destruction of all enemies, while others only require destruction of specific targets or the completion of tasks, such as pushing blocks into predetermined locations. In addition, these goals must be completed in the amount of time given for each stage, and this factor often comes into play.</p><p>Bangai-O can shoot in 360 degrees. Enemies within the visible blue circle around Bangai-O take double damage and enemies within the smaller yellow circle take triple damage. This simple risk/reward system requires the player to be closer to enemies in order to inflict more damage faster.</p><h3>EX Gauge &amp; Fruit</h3><p>Destroying enemies and objects in each stage will yield fruit. For each fruit obtained, Bangai-O's EX Gauge will increase. The amount it increases is determined by the type of fruit collected, and the type of fruit yielded is based on the difficulty of the target destroyed. Many stages require strategic fruit collecting in order to build the EX Gauge quickly, or in difficult circumstances.</p><h3>EX Counterattack</h3><p>The EX Counterattack is Bangai-O's main advantage against the enemy. Activating EX Counterattack Mode will make Bangai-O invincible during its charging phase, and a charge counter will begin to count up from 0 to 100. When the counter hits 100, Bangai-O will immediately begin to take damage from all attackers, however the higher this number is when EX Mode is released, the larger the counterattack will be. This again stresses the risk/reward gameplay - holding the button longer increases the chances of accidentally losing invincibility and meeting certain death. Use of the EX Counterattack uses one point on the EX Gauge.</p><p>Upon releasing the left trigger to leave charging phase, the power of Bangai-O's counterattack is unleashed in a 360-degree barrage of missiles. The amount of missiles deployed is determined by the amount of targets and enemy fire within close proximity, and also the amount on the charge counter when charging phase was ended. Also, by holding in a specific direction, the 360-degree attack can instead be focused in one direction.</p><h3>Counterattack Multiplier</h3><p>By using the right trigger during the charging phase, Bangai-O will increase its Counterattack Multiplier. Each increase of this counter costs one more EX Gauge use, and immediately resets the invincibility counter to zero. Depending on what Bangai-O's multiplier is set, the amount of missiles released will be multiplied by that number. Releasing a EX Counterattack x4 is particularly powerful and can decimate large areas of levels with one blow.</p><h3>MAX Attack</h3><p>When Bangai-O has an EX Gauge of 5 or higher, it can activate MAX Attack mode. This mode will make Bangai-O completely invincible, with heightened speed and attack power, as well as an automatically maxed out EX Counterattack ability. The EX Gauge will quickly deplete and the mode ends either when the gauge is completely empty, or the player initiates the EX Counterattack. Upon exiting this mode, Bangai-O will be unable to move or shoot for a short duration, making MAX Attack mode a last resort ability.</p><h3>Dash Gauge</h3><p>A second gauge tracks the amount of uses of Dash Attacks and Freeze Attacks available. Each time one of these two attacks is initiated, the meter is reduced by one. After completing the most recent dash or freeze, the meter will completely recharge after a duration of three seconds (unless a new dash or freeze is initiated). The Dash Gauge will also completely recharge immediately following any EX Counterattack.</p><h3>Dash Attack</h3><p>Dashing makes Bangai-O invulnerable to most attacks, and he can also use it to inflict damage on enemies and even reflect back some projectiles. Each use of the Dash uses one point on the Dash Meter. Proper use of dashing is arguably one of the most important facets of Bangai-O gameplay.</p><h3>Freeze Attack</h3><p>By pressing the dash button while not moving, Bangai-O will initiate a Freeze Attack that will immobilize all enemies within the yellow counter circle. Many enemies that have the ability to reflect or neutralize missile attacks can be eliminated by freezing them first. Each use of the Freeze Attack uses one point on the Dash Meter.</p><h3>Weaponry</h3><p>Each stage begins with two predetermined weapon types, however many stages have weapon icons that can be retrieved on the field that will replace your currently selected weapon. Switching between weapon types on the fly depending on the situation at hand is an important part of Bangai-O's level design.</p><ul><li><i><b>Normal</b></i> - Missiles fire straight ahead.</li><li><b>Homing</b> - Missiles will home in on enemies within the visible blue lock-on circle.</li><li>Bounce - bullets will reflect off walls in the direction of locked-on enemies.</li><li>Napalm - Ultra-powerful exploding bullets with a very slow recharge rate.</li><li>Break - Capable of destroying incoming enemy fire.</li><li>Fast - Missiles fire with increased speed.</li><li>Wide - A five missile spread attack.</li></ul>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-32512",
+            "id": 32512,
+            "image": {
+                "icon_url": "https://giantbomb1.cbsistatic.com/uploads/square_avatar/8/87790/1775395-box_bangaiohd.png",
+                "medium_url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/8/87790/1775395-box_bangaiohd.png",
+                "screen_url": "https://giantbomb1.cbsistatic.com/uploads/screen_medium/8/87790/1775395-box_bangaiohd.png",
+                "screen_large_url": "https://giantbomb1.cbsistatic.com/uploads/screen_kubrick/8/87790/1775395-box_bangaiohd.png",
+                "small_url": "https://giantbomb1.cbsistatic.com/uploads/scale_small/8/87790/1775395-box_bangaiohd.png",
+                "super_url": "https://giantbomb1.cbsistatic.com/uploads/scale_large/8/87790/1775395-box_bangaiohd.png",
+                "thumb_url": "https://giantbomb1.cbsistatic.com/uploads/scale_avatar/8/87790/1775395-box_bangaiohd.png",
+                "tiny_url": "https://giantbomb1.cbsistatic.com/uploads/square_mini/8/87790/1775395-box_bangaiohd.png",
+                "original_url": "https://giantbomb1.cbsistatic.com/uploads/original/8/87790/1775395-box_bangaiohd.png",
+                "image_tags": "All Images,Box Art"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-32512/?filter=image_tag%3AAll%20Images",
+                    "name": "All Images",
+                    "total": 6
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-32512/?filter=image_tag%3ABox%20Art",
+                    "name": "Box Art",
+                    "total": 2
+                }
+            ],
+            "name": "Bangai-O HD: Missile Fury",
+            "number_of_user_reviews": 0,
+            "original_game_rating": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/game_rating/3065-29/",
+                    "id": 29,
+                    "name": "ESRB: E10+"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/game_rating/3065-36/",
+                    "id": 36,
+                    "name": "PEGI: 12+"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/game_rating/3065-25/",
+                    "id": 25,
+                    "name": "CERO: A"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/game_rating/3065-38/",
+                    "id": 38,
+                    "name": "OFLC: PG"
+                }
+            ],
+            "original_release_date": "2011-05-04",
+            "platforms": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-86/",
+                    "id": 86,
+                    "name": "Xbox 360 Games Store",
+                    "site_detail_url": "https://www.giantbomb.com/xbox-360-games-store/3045-86/",
+                    "abbreviation": "XBGS"
+                }
+            ],
+            "site_detail_url": "https://www.giantbomb.com/bangai-o-hd-missile-fury/3030-32512/",
+            "resource_type": "game"
+        },
+        {
+            "aliases": "O.",
+            "api_detail_url": "https://www.giantbomb.com/api/game/3030-64032/",
+            "date_added": "2017-12-27 10:22:57",
+            "date_last_updated": "2017-12-30 14:11:05",
+            "deck": null,
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-64032",
+            "id": 64032,
+            "image": {
+                "icon_url": "https://giantbomb1.cbsistatic.com/uploads/square_avatar/8/84290/2986673-1075377579-1750x.jpg",
+                "medium_url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/8/84290/2986673-1075377579-1750x.jpg",
+                "screen_url": "https://giantbomb1.cbsistatic.com/uploads/screen_medium/8/84290/2986673-1075377579-1750x.jpg",
+                "screen_large_url": "https://giantbomb1.cbsistatic.com/uploads/screen_kubrick/8/84290/2986673-1075377579-1750x.jpg",
+                "small_url": "https://giantbomb1.cbsistatic.com/uploads/scale_small/8/84290/2986673-1075377579-1750x.jpg",
+                "super_url": "https://giantbomb1.cbsistatic.com/uploads/scale_large/8/84290/2986673-1075377579-1750x.jpg",
+                "thumb_url": "https://giantbomb1.cbsistatic.com/uploads/scale_avatar/8/84290/2986673-1075377579-1750x.jpg",
+                "tiny_url": "https://giantbomb1.cbsistatic.com/uploads/square_mini/8/84290/2986673-1075377579-1750x.jpg",
+                "original_url": "https://giantbomb1.cbsistatic.com/uploads/original/8/84290/2986673-1075377579-1750x.jpg",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-64032/?filter=image_tag%3AAll%20Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "O",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": null,
+            "platforms": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-96/",
+                    "id": 96,
+                    "name": "iPhone",
+                    "site_detail_url": "https://www.giantbomb.com/iphone/3045-96/",
+                    "abbreviation": "IPHN"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-121/",
+                    "id": 121,
+                    "name": "iPad",
+                    "site_detail_url": "https://www.giantbomb.com/ipad/3045-121/",
+                    "abbreviation": "IPAD"
+                }
+            ],
+            "site_detail_url": "https://www.giantbomb.com/o/3030-64032/",
+            "resource_type": "game"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https://www.giantbomb.com/api/game/3030-65812/",
+            "date_added": "2018-01-26 06:54:46",
+            "date_last_updated": "2018-01-26 14:55:46",
+            "deck": "oVRshot is a competitive multiplayer shooter in VR.",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-65812",
+            "id": 65812,
+            "image": {
+                "icon_url": "https://giantbomb1.cbsistatic.com/uploads/square_avatar/37/372188/2995313-oculus_portrait.jpg",
+                "medium_url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/37/372188/2995313-oculus_portrait.jpg",
+                "screen_url": "https://giantbomb1.cbsistatic.com/uploads/screen_medium/37/372188/2995313-oculus_portrait.jpg",
+                "screen_large_url": "https://giantbomb1.cbsistatic.com/uploads/screen_kubrick/37/372188/2995313-oculus_portrait.jpg",
+                "small_url": "https://giantbomb1.cbsistatic.com/uploads/scale_small/37/372188/2995313-oculus_portrait.jpg",
+                "super_url": "https://giantbomb1.cbsistatic.com/uploads/scale_large/37/372188/2995313-oculus_portrait.jpg",
+                "thumb_url": "https://giantbomb1.cbsistatic.com/uploads/scale_avatar/37/372188/2995313-oculus_portrait.jpg",
+                "tiny_url": "https://giantbomb1.cbsistatic.com/uploads/square_mini/37/372188/2995313-oculus_portrait.jpg",
+                "original_url": "https://giantbomb1.cbsistatic.com/uploads/original/37/372188/2995313-oculus_portrait.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [],
+            "name": "oVRshot",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2018-03-09",
+            "platforms": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-94/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https://www.giantbomb.com/pc/3045-94/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https://www.giantbomb.com/ovrshot/3030-65812/",
+            "resource_type": "game"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https://www.giantbomb.com/api/game/3030-49812/",
+            "date_added": "2015-05-31 11:37:24",
+            "date_last_updated": "2015-06-03 21:38:52",
+            "deck": "Master the use of stratO's individually-actuated control fins to fly an unpowered glider through tiny gaps, perform chains of aerial manoeuvres, slide across massive obstacles to charge boosters and burn at dubstep speeds!",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-49812",
+            "id": 49812,
+            "image": {
+                "icon_url": "https://giantbomb1.cbsistatic.com/uploads/square_avatar/11/110673/3026329-gb_default-16_9.jpg",
+                "medium_url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/11/110673/3026329-gb_default-16_9.jpg",
+                "screen_url": "https://giantbomb1.cbsistatic.com/uploads/screen_medium/11/110673/3026329-gb_default-16_9.jpg",
+                "screen_large_url": "https://giantbomb1.cbsistatic.com/uploads/screen_kubrick/11/110673/3026329-gb_default-16_9.jpg",
+                "small_url": "https://giantbomb1.cbsistatic.com/uploads/scale_small/11/110673/3026329-gb_default-16_9.jpg",
+                "super_url": "https://giantbomb1.cbsistatic.com/uploads/scale_large/11/110673/3026329-gb_default-16_9.jpg",
+                "thumb_url": "https://giantbomb1.cbsistatic.com/uploads/scale_avatar/11/110673/3026329-gb_default-16_9.jpg",
+                "tiny_url": "https://giantbomb1.cbsistatic.com/uploads/square_mini/11/110673/3026329-gb_default-16_9.jpg",
+                "original_url": "https://giantbomb1.cbsistatic.com/uploads/original/11/110673/3026329-gb_default-16_9.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-49812/?filter=image_tag%3AAll%20Images",
+                    "name": "All Images",
+                    "total": 7
+                }
+            ],
+            "name": "stratO",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2015-06-01",
+            "platforms": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-94/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https://www.giantbomb.com/pc/3045-94/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https://www.giantbomb.com/strato/3030-49812/",
+            "resource_type": "game"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https://www.giantbomb.com/api/game/3030-48523/",
+            "date_added": "2015-01-08 05:05:42",
+            "date_last_updated": "2018-01-11 13:49:34",
+            "deck": "An abstract puzzle-platformer where players have the ability to shrink and grow.",
+            "description": "<h2>Overview</h2><p>iO is a physics-based puzzle game developed by Gamious. It is currently available for <a href=\"https://www.giantbomb.com/pc/3045-94/\" data-ref-id=\"3045-94\">PC</a>, <a href=\"https://www.giantbomb.com/mac/3045-17/\" data-ref-id=\"3045-17\">Mac</a>, <a href=\"https://www.giantbomb.com/linux/3045-152/\" data-ref-id=\"3045-152\">Linux</a>, and <a href=\"https://www.giantbomb.com/ouya/3045-154/\" data-ref-id=\"3045-154\">Ouya</a> and will become available for Xbox One, <a href=\"https://store.playstation.com/#!/cid=UP1528-CUSA04567_00-IOPHYSICSGAMIOUS\" rel=\"nofollow \">Playstation 4</a>, <a href=\"https://store.playstation.com/#!/cid=UP1528-PCSE00876_00-IOPHYSICSGAMIOUS\" rel=\"nofollow \">Playstation Vita</a>, <a href=\"https://www.microsoft.com/store/apps/9nblggh59n1j\" rel=\"nofollow \">Windows Store</a> on the 14th of February 2017.</p>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-48523",
+            "id": 48523,
+            "image": {
+                "icon_url": "https://giantbomb1.cbsistatic.com/uploads/square_avatar/8/87790/2991310-box_io.png",
+                "medium_url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/8/87790/2991310-box_io.png",
+                "screen_url": "https://giantbomb1.cbsistatic.com/uploads/screen_medium/8/87790/2991310-box_io.png",
+                "screen_large_url": "https://giantbomb1.cbsistatic.com/uploads/screen_kubrick/8/87790/2991310-box_io.png",
+                "small_url": "https://giantbomb1.cbsistatic.com/uploads/scale_small/8/87790/2991310-box_io.png",
+                "super_url": "https://giantbomb1.cbsistatic.com/uploads/scale_large/8/87790/2991310-box_io.png",
+                "thumb_url": "https://giantbomb1.cbsistatic.com/uploads/scale_avatar/8/87790/2991310-box_io.png",
+                "tiny_url": "https://giantbomb1.cbsistatic.com/uploads/square_mini/8/87790/2991310-box_io.png",
+                "original_url": "https://giantbomb1.cbsistatic.com/uploads/original/8/87790/2991310-box_io.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-48523/?filter=image_tag%3AAll%20Images",
+                    "name": "All Images",
+                    "total": 11
+                }
+            ],
+            "name": "iO",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2014-02-14",
+            "platforms": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-17/",
+                    "id": 17,
+                    "name": "Mac",
+                    "site_detail_url": "https://www.giantbomb.com/mac/3045-17/",
+                    "abbreviation": "MAC"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-94/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https://www.giantbomb.com/pc/3045-94/",
+                    "abbreviation": "PC"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-124/",
+                    "id": 124,
+                    "name": "Windows Phone",
+                    "site_detail_url": "https://www.giantbomb.com/windows-phone/3045-124/",
+                    "abbreviation": "WP"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-143/",
+                    "id": 143,
+                    "name": "PlayStation Network (Vita)",
+                    "site_detail_url": "https://www.giantbomb.com/playstation-network-vita/3045-143/",
+                    "abbreviation": "PSNV"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-145/",
+                    "id": 145,
+                    "name": "Xbox One",
+                    "site_detail_url": "https://www.giantbomb.com/xbox-one/3045-145/",
+                    "abbreviation": "XONE"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-146/",
+                    "id": 146,
+                    "name": "PlayStation 4",
+                    "site_detail_url": "https://www.giantbomb.com/playstation-4/3045-146/",
+                    "abbreviation": "PS4"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-152/",
+                    "id": 152,
+                    "name": "Linux",
+                    "site_detail_url": "https://www.giantbomb.com/linux/3045-152/",
+                    "abbreviation": "LIN"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-154/",
+                    "id": 154,
+                    "name": "Ouya",
+                    "site_detail_url": "https://www.giantbomb.com/ouya/3045-154/",
+                    "abbreviation": "OUYA"
+                }
+            ],
+            "site_detail_url": "https://www.giantbomb.com/i-o/3030-48523/",
+            "resource_type": "game"
+        },
+        {
+            "aliases": "Shad'O",
+            "api_detail_url": "https://www.giantbomb.com/api/game/3030-39655/",
+            "date_added": "2012-09-03 21:20:25",
+            "date_last_updated": "2014-04-15 10:46:11",
+            "deck": "Shad'O is a tower defense game set in strange world.",
+            "description": "<h2>Overview</h2><figure data-align=\"right\" data-img-src=\"https://static.giantbomb.com/uploads/original/11/117587/2309664-oshady_3.jpg\" data-ref-id=\"1300-2309664\" data-size=\"small\" data-embed-type=\"image\" data-ratio=\"0.5625\"><a class=\"fluid-height\" style=\"padding-bottom:56.3%\" href=\"https://static.giantbomb.com/uploads/original/11/117587/2309664-oshady_3.jpg\" data-ref-id=\"1300-2309664\"><img alt=\"No Caption Provided\" src=\"https://giantbomb1.cbsistatic.com/uploads/scale_small/11/117587/2309664-oshady_3.jpg\" srcset=\"https://giantbomb1.cbsistatic.com/uploads/original/11/117587/2309664-oshady_3.jpg 1024w, https://giantbomb1.cbsistatic.com/uploads/scale_super/11/117587/2309664-oshady_3.jpg 960w, https://giantbomb1.cbsistatic.com/uploads/scale_medium/11/117587/2309664-oshady_3.jpg 480w, https://giantbomb1.cbsistatic.com/uploads/scale_small/11/117587/2309664-oshady_3.jpg 320w\" sizes=\"(max-width: 320px) 100vw, 320px\" data-width=\"320\"></a></figure><p>Tower defense game in which battles occur within the mind of a child named William. Drive enemies away to clear his mind and let him retain his sanity. Fog shrouds the playing field; in order to push away the fog, the player must deploy units to collect light. Parts of the map are animated and have a function in the game.</p><h2>PC System Requirements</h2><ul><li><strong>OS:</strong> Windows 7</li><li><strong>Processor:</strong> Intel double core/quad-core 2.66Ghz or AMD 3.26Ghz</li><li><strong>Memory:</strong> 4 GB RAM</li><li><strong>Hard Disk Space:</strong> 1.2 GB free space</li><li><strong>Video Card:</strong> 1GB and Shader Model 3.0 (ATI 4870, Nvidia GeForce 260)</li><li><strong>Additional:</strong>Quicktime 7 or later</li></ul>",
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-39655",
+            "id": 39655,
+            "image": {
+                "icon_url": "https://giantbomb1.cbsistatic.com/uploads/square_avatar/16/166829/2308770-boxshot01.png",
+                "medium_url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/16/166829/2308770-boxshot01.png",
+                "screen_url": "https://giantbomb1.cbsistatic.com/uploads/screen_medium/16/166829/2308770-boxshot01.png",
+                "screen_large_url": "https://giantbomb1.cbsistatic.com/uploads/screen_kubrick/16/166829/2308770-boxshot01.png",
+                "small_url": "https://giantbomb1.cbsistatic.com/uploads/scale_small/16/166829/2308770-boxshot01.png",
+                "super_url": "https://giantbomb1.cbsistatic.com/uploads/scale_large/16/166829/2308770-boxshot01.png",
+                "thumb_url": "https://giantbomb1.cbsistatic.com/uploads/scale_avatar/16/166829/2308770-boxshot01.png",
+                "tiny_url": "https://giantbomb1.cbsistatic.com/uploads/square_mini/16/166829/2308770-boxshot01.png",
+                "original_url": "https://giantbomb1.cbsistatic.com/uploads/original/16/166829/2308770-boxshot01.png",
+                "image_tags": "All Images,Box Art"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-39655/?filter=image_tag%3AAll%20Images",
+                    "name": "All Images",
+                    "total": 20
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-39655/?filter=image_tag%3ABox%20Art",
+                    "name": "Box Art",
+                    "total": 1
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-39655/?filter=image_tag%3AConcept%20Art",
+                    "name": "Concept Art",
+                    "total": 6
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-39655/?filter=image_tag%3AScreenshots",
+                    "name": "Screenshots",
+                    "total": 13
+                }
+            ],
+            "name": "Shad’O",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2012-09-04",
+            "platforms": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-94/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https://www.giantbomb.com/pc/3045-94/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https://www.giantbomb.com/shado/3030-39655/",
+            "resource_type": "game"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https://www.giantbomb.com/api/game/3030-68717/",
+            "date_added": "2018-05-28 07:37:43",
+            "date_last_updated": "2019-05-27 15:32:52",
+            "deck": "S.O.N is a psychological horror game from RedG Studios.",
+            "description": null,
+            "expected_release_day": null,
+            "expected_release_month": null,
+            "expected_release_quarter": null,
+            "expected_release_year": null,
+            "guid": "3030-68717",
+            "id": 68717,
+            "image": {
+                "icon_url": "https://giantbomb1.cbsistatic.com/uploads/square_avatar/16/165036/3023960-son.jpg",
+                "medium_url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/16/165036/3023960-son.jpg",
+                "screen_url": "https://giantbomb1.cbsistatic.com/uploads/screen_medium/16/165036/3023960-son.jpg",
+                "screen_large_url": "https://giantbomb1.cbsistatic.com/uploads/screen_kubrick/16/165036/3023960-son.jpg",
+                "small_url": "https://giantbomb1.cbsistatic.com/uploads/scale_small/16/165036/3023960-son.jpg",
+                "super_url": "https://giantbomb1.cbsistatic.com/uploads/scale_large/16/165036/3023960-son.jpg",
+                "thumb_url": "https://giantbomb1.cbsistatic.com/uploads/scale_avatar/16/165036/3023960-son.jpg",
+                "tiny_url": "https://giantbomb1.cbsistatic.com/uploads/square_mini/16/165036/3023960-son.jpg",
+                "original_url": "https://giantbomb1.cbsistatic.com/uploads/original/16/165036/3023960-son.jpg",
+                "image_tags": "All Images"
+            },
+            "image_tags": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/images/3030-68717/?filter=image_tag%3AAll%20Images",
+                    "name": "All Images",
+                    "total": 1
+                }
+            ],
+            "name": "S.O.N",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": "2019-03-28",
+            "platforms": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-146/",
+                    "id": 146,
+                    "name": "PlayStation 4",
+                    "site_detail_url": "https://www.giantbomb.com/playstation-4/3045-146/",
+                    "abbreviation": "PS4"
+                }
+            ],
+            "site_detail_url": "https://www.giantbomb.com/son/3030-68717/",
+            "resource_type": "game"
+        },
+        {
+            "aliases": null,
+            "api_detail_url": "https://www.giantbomb.com/api/game/3030-66886/",
+            "date_added": "2018-03-07 06:45:40",
+            "date_last_updated": "2018-03-11 16:27:19",
+            "deck": "M.O.R.E. (Military Organization Research Economy)",
+            "description": "<p>M.O.R.E. (Military Organization Research Economy) is a 3D, turn-based, 4X science fiction computer strategy game by a polish indie game design studio Gamgoo.</p><p>The player leads one of twelve diverse races to dominate the galaxy through a combination of diplomacy and conquest while developing technology, exploring and colonizing star systems. It features both multiplayer and single-player modes.</p>",
+            "expected_release_day": null,
+            "expected_release_month": 12,
+            "expected_release_quarter": null,
+            "expected_release_year": 2018,
+            "guid": "3030-66886",
+            "id": 66886,
+            "image": {
+                "icon_url": "https://giantbomb1.cbsistatic.com/uploads/square_avatar/37/375671/3004312-logo_more_x.png",
+                "medium_url": "https://giantbomb1.cbsistatic.com/uploads/scale_medium/37/375671/3004312-logo_more_x.png",
+                "screen_url": "https://giantbomb1.cbsistatic.com/uploads/screen_medium/37/375671/3004312-logo_more_x.png",
+                "screen_large_url": "https://giantbomb1.cbsistatic.com/uploads/screen_kubrick/37/375671/3004312-logo_more_x.png",
+                "small_url": "https://giantbomb1.cbsistatic.com/uploads/scale_small/37/375671/3004312-logo_more_x.png",
+                "super_url": "https://giantbomb1.cbsistatic.com/uploads/scale_large/37/375671/3004312-logo_more_x.png",
+                "thumb_url": "https://giantbomb1.cbsistatic.com/uploads/scale_avatar/37/375671/3004312-logo_more_x.png",
+                "tiny_url": "https://giantbomb1.cbsistatic.com/uploads/square_mini/37/375671/3004312-logo_more_x.png",
+                "original_url": "https://giantbomb1.cbsistatic.com/uploads/original/37/375671/3004312-logo_more_x.png",
+                "image_tags": "All Images"
+            },
+            "image_tags": [],
+            "name": "M.O.R.E.",
+            "number_of_user_reviews": 0,
+            "original_game_rating": null,
+            "original_release_date": null,
+            "platforms": [
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-17/",
+                    "id": 17,
+                    "name": "Mac",
+                    "site_detail_url": "https://www.giantbomb.com/mac/3045-17/",
+                    "abbreviation": "MAC"
+                },
+                {
+                    "api_detail_url": "https://www.giantbomb.com/api/platform/3045-94/",
+                    "id": 94,
+                    "name": "PC",
+                    "site_detail_url": "https://www.giantbomb.com/pc/3045-94/",
+                    "abbreviation": "PC"
+                }
+            ],
+            "site_detail_url": "https://www.giantbomb.com/more/3030-66886/",
+            "resource_type": "game"
+        }
+    ],
+    "version": "1.0"
+}

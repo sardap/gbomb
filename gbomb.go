@@ -24,16 +24,18 @@ type httpClient interface {
 type Invoker struct {
 	Endpoint string
 	APIKey   string
-	limter   *rate.Limiter
+	Limter   *rate.Limiter
 	client   httpClient
 }
 
 func (i *Invoker) requestLimiter() {
-	i.limter.Wait(context.TODO())
+	i.Limter.Wait(context.TODO())
 }
 
 func (i *Invoker) get(pageable Pageable) ([]byte, error) {
-	url := fmt.Sprintf("%s/%s", i.Endpoint, pageable.Path())
+	path, query := pageable.Path()
+
+	url := fmt.Sprintf("%s/%s", i.Endpoint, path)
 
 	req, err := http.NewRequest(
 		"GET", url, nil,
@@ -42,7 +44,7 @@ func (i *Invoker) get(pageable Pageable) ([]byte, error) {
 		return nil, err
 	}
 
-	offset, err := pageable.NextOffset()
+	offset := pageable.GetOffset()
 	if err != nil {
 		return nil, err
 	}
@@ -51,6 +53,9 @@ func (i *Invoker) get(pageable Pageable) ([]byte, error) {
 	q.Add("api_key", i.APIKey)
 	q.Add("format", "json")
 	q.Add("offset", fmt.Sprintf("%d", offset))
+	for k, v := range query {
+		q.Add(k, v)
+	}
 	req.URL.RawQuery = q.Encode()
 
 	i.requestLimiter()
@@ -68,20 +73,36 @@ func (i *Invoker) get(pageable Pageable) ([]byte, error) {
 	return body, nil
 }
 
+//Next gets next page for pageable
+func (i *Invoker) Next(page Pageable) error {
+	page.NextOffset()
+
+	body, err := i.get(page)
+	if err != nil {
+		return err
+	}
+
+	page.Parse(body)
+
+	return nil
+}
+
 //CreateInvoker Creates a giant bomb invoker
 func CreateInvoker(endpoint, key string) *Invoker {
 	return &Invoker{
 		Endpoint: endpoint, APIKey: key,
-		limter: rate.NewLimiter(rate.Every(time.Duration(31)*time.Second), 1),
+		Limter: rate.NewLimiter(rate.Every(time.Duration(31)*time.Second), 1),
 		client: http.DefaultClient,
 	}
 }
 
 //Pageable used for reuqests with many pages
 type Pageable interface {
-	NextOffset() (int, error)
+	NextOffset() error
+	GetOffset() int
 	Complete() bool
-	Path() string
+	Path() (string, map[string]string)
+	Parse(data []byte) error
 }
 
 //Date a giant bomb time
@@ -259,10 +280,10 @@ type Game struct {
 	DateLastUpdate            Date            `json:"date_last_updated"`
 	Deck                      string          `json:"dec"`
 	Description               string          `json:"description"`
-	ExpectedReleaseDay        string          `json:"expected_release_day"`
-	ExpectedReleaseMonth      string          `json:"expected_release_month"`
-	ExpectedReleaseQuarter    string          `json:"expected_release_quarter"`
-	ExpectedReleaseYear       string          `json:"expected_release_year"`
+	ExpectedReleaseDay        int             `json:"expected_release_day"`
+	ExpectedReleaseMonth      int             `json:"expected_release_month"`
+	ExpectedReleaseQuarter    int             `json:"expected_release_quarter"`
+	ExpectedReleaseYear       int             `json:"expected_release_year"`
 	Image                     Image           `json:"image"`
 	ImageTags                 []ImageTag      `json:"image_tags"`
 	Images                    []Image         `json:"images"`
@@ -304,12 +325,7 @@ type ResponsePage struct {
 }
 
 //NextOffset returns the next offset
-func (r *ResponsePage) NextOffset() (int, error) {
-	//First call
-	if r.PageResults == 0 {
-		return r.Offset, nil
-	}
-
+func (r *ResponsePage) NextOffset() error {
 	if r.Offset < r.MaxResults {
 		next := r.MaxResults - r.Offset
 		if next > r.Limit {
@@ -318,10 +334,15 @@ func (r *ResponsePage) NextOffset() (int, error) {
 
 		r.Offset += next
 
-		return r.Offset, nil
+		return nil
 	}
 
-	return 0, fmt.Errorf("no more results")
+	return fmt.Errorf("no more results")
+}
+
+//GetOffset returns the next offset
+func (r *ResponsePage) GetOffset() int {
+	return r.Offset
 }
 
 //Complete will return if there are no more results
@@ -336,19 +357,17 @@ type VideosResponse struct {
 }
 
 //Path returns video path
-func (v *VideosResponse) Path() string {
-	return fmt.Sprintf("api/videos")
+func (v *VideosResponse) Path() (string, map[string]string) {
+	return fmt.Sprintf("api/videos"), make(map[string]string)
 }
 
-//Next returns next page for video response
-func (v *VideosResponse) Next(i *Invoker) error {
-	body, err := i.get(v)
+//Parse parse
+func (v *VideosResponse) Parse(data []byte) error {
+	var tmp VideosResponse
+	err := json.Unmarshal(data, &tmp)
 	if err != nil {
 		return err
 	}
-
-	var tmp VideosResponse
-	json.Unmarshal(body, &tmp)
 
 	v.ResponsePage = tmp.ResponsePage
 	v.Videos = tmp.Videos
@@ -360,15 +379,16 @@ func (v *VideosResponse) Next(i *Invoker) error {
 func (i *Invoker) GetVideos(ctx context.Context, offset int) (*VideosResponse, error) {
 	result := &VideosResponse{}
 	result.Offset = offset
-	result.ResponsePage.Limit = 100
-	result.MaxResults = 100
 
 	body, err := i.get(result)
 	if err != nil {
 		return nil, err
 	}
 
-	json.Unmarshal(body, result)
+	err = result.Parse(body)
+	if err != nil {
+		return nil, err
+	}
 
 	return result, nil
 }
@@ -399,16 +419,28 @@ type gameResponseInternal struct {
 }
 
 //Path returns video path
-func (g *gameResponseInternal) Path() string {
-	return fmt.Sprintf("api/game/%s", g.tagetGame)
+func (g *gameResponseInternal) Path() (string, map[string]string) {
+	return fmt.Sprintf("api/game/%s", g.tagetGame), make(map[string]string)
+}
+
+//Parse parse
+func (g *gameResponseInternal) Parse(data []byte) error {
+	var tmp gameResponseInternal
+	err := json.Unmarshal(data, &tmp)
+	if err != nil {
+		return err
+	}
+
+	g.ResponsePage = tmp.ResponsePage
+	g.Results = tmp.Results
+	g.tagetGame = tmp.tagetGame
+
+	return nil
 }
 
 //GetGame returns a given game
 func (i *Invoker) GetGame(ctx context.Context, gameID string) (*Game, error) {
 	result := &gameResponseInternal{}
-	result.Offset = 0
-	result.ResponsePage.Limit = 100
-	result.MaxResults = 100
 
 	result.tagetGame = gameID
 
@@ -417,9 +449,60 @@ func (i *Invoker) GetGame(ctx context.Context, gameID string) (*Game, error) {
 		return nil, err
 	}
 
-	err = json.Unmarshal(body, result)
+	err = result.Parse(body)
+	if err != nil {
+		return nil, err
+	}
 
 	return result.Results, err
+}
+
+//GamesResponse game response
+type GamesResponse struct {
+	ResponsePage
+	Results   []Game `json:"results"`
+	tagetGame string
+}
+
+//Path returns path for game Serach
+func (g *GamesResponse) Path() (string, map[string]string) {
+	return "api/search", map[string]string{
+		"query":     g.tagetGame,
+		"resources": "game",
+	}
+}
+
+//Parse parse
+func (g *GamesResponse) Parse(data []byte) error {
+	var tmp GamesResponse
+	err := json.Unmarshal(data, &tmp)
+	if err != nil {
+		return err
+	}
+
+	g.ResponsePage = tmp.ResponsePage
+	g.Results = tmp.Results
+
+	return nil
+}
+
+//SearchGame search game
+func (i *Invoker) SearchGame(ctx context.Context, name string) (*GamesResponse, error) {
+	result := &GamesResponse{}
+
+	result.tagetGame = name
+
+	body, err := i.get(result)
+	if err != nil {
+		return nil, err
+	}
+
+	err = result.Parse(body)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
 }
 
 // #####################################################################
