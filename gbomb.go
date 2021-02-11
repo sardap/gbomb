@@ -24,18 +24,19 @@ type httpClient interface {
 type Invoker struct {
 	Endpoint string
 	APIKey   string
-	limter   *rate.Limiter
+	Limter   *rate.Limiter
 	client   httpClient
 }
 
 func (i *Invoker) requestLimiter() {
-	i.limter.Wait(context.TODO())
+	i.Limter.Wait(context.TODO())
 }
 
 func (i *Invoker) get(pageable Pageable) ([]byte, error) {
-	url := fmt.Sprintf("%s/%s", i.Endpoint, pageable.Path())
+	path, query := pageable.Path()
 
-	client := &http.Client{}
+	url := fmt.Sprintf("%s/%s", i.Endpoint, path)
+
 	req, err := http.NewRequest(
 		"GET", url, nil,
 	)
@@ -43,7 +44,7 @@ func (i *Invoker) get(pageable Pageable) ([]byte, error) {
 		return nil, err
 	}
 
-	offset, err := pageable.NextOffset()
+	offset := pageable.GetOffset()
 	if err != nil {
 		return nil, err
 	}
@@ -52,10 +53,13 @@ func (i *Invoker) get(pageable Pageable) ([]byte, error) {
 	q.Add("api_key", i.APIKey)
 	q.Add("format", "json")
 	q.Add("offset", fmt.Sprintf("%d", offset))
+	for k, v := range query {
+		q.Add(k, v)
+	}
 	req.URL.RawQuery = q.Encode()
 
 	i.requestLimiter()
-	res, err := client.Do(req)
+	res, err := i.client.Do(req)
 	if err != nil {
 		return nil, err
 	}
@@ -69,20 +73,72 @@ func (i *Invoker) get(pageable Pageable) ([]byte, error) {
 	return body, nil
 }
 
+//Next gets next page for pageable
+func (i *Invoker) Next(page Pageable) error {
+	page.NextOffset()
+
+	body, err := i.get(page)
+	if err != nil {
+		return err
+	}
+
+	page.Parse(body)
+
+	return nil
+}
+
 //CreateInvoker Creates a giant bomb invoker
 func CreateInvoker(endpoint, key string) *Invoker {
 	return &Invoker{
 		Endpoint: endpoint, APIKey: key,
-		limter: rate.NewLimiter(rate.Every(time.Duration(31)*time.Second), 1),
+		Limter: rate.NewLimiter(rate.Every(time.Duration(31)*time.Second), 1),
 		client: http.DefaultClient,
 	}
 }
 
 //Pageable used for reuqests with many pages
 type Pageable interface {
-	NextOffset() (int, error)
+	NextOffset() error
+	GetOffset() int
 	Complete() bool
-	Path() string
+	Path() (string, map[string]string)
+	Parse(data []byte) error
+}
+
+//Date a giant bomb time
+type Date struct {
+	date string
+}
+
+//UnmarshalJSON custom json unmarshaler
+func (d *Date) UnmarshalJSON(data []byte) error {
+	//someone \" are being included
+	d.date = string(data[1 : len(data)-1])
+	return nil
+}
+
+//String returns date as string
+func (d *Date) String() string {
+	return d.date
+}
+
+//GetTime converts from giant bomb date to time.Time
+func (d *Date) GetTime() time.Time {
+	var layout string
+	if len(d.date) == 19 {
+		layout = "2006-01-02 15:04:05"
+	} else if len(d.date) == 10 {
+		layout = "2006-01-02"
+	} else {
+		layout = ""
+	}
+
+	result, _ := time.Parse(
+		layout,
+		string(d.date),
+	)
+
+	return result
 }
 
 //Image a giant bomb API Image
@@ -97,6 +153,37 @@ type Image struct {
 	TinyURL        string `json:"tiny_url"`
 	OriginalURL    string `json:"original_url"`
 	ImageTags      string `json:"image_tags"`
+}
+
+//Tag tag
+type Tag struct {
+	APIDetailURL string `json:"api_detail_url"`
+	Name         string `json:"name"`
+}
+
+//ImageTag a giant bomb API image tag
+type ImageTag struct {
+	Tag
+	Total int `json:"total"`
+}
+
+//GameRatingTag GameRatingTag
+type GameRatingTag struct {
+	Tag
+	ID int `json:"id"`
+}
+
+//CompleteTag CompleteTag
+type CompleteTag struct {
+	Tag
+	ID            int    `json:"id"`
+	SiteDetailURL string `json:"site_detail_url"`
+}
+
+//PlatformTag PlatformTag
+type PlatformTag struct {
+	CompleteTag
+	Abbreviation string `json:"abbreviation"`
 }
 
 //VideoShow Giant bomb api VideoShow
@@ -139,7 +226,7 @@ type VideoInfo struct {
 	LengthSeconds   int             `json:"length_seconds"`
 	Name            string          `json:"name"`
 	Premium         bool            `json:"premium"`
-	PublishDate     string          `json:"publish_date"`
+	PublishDate     Date            `json:"publish_date"`
 	User            string          `json:"user"`
 	Hosts           string          `json:"Hosts"`
 	Crew            string          `json:"crew"`
@@ -182,10 +269,49 @@ func (v *VideoInfo) GetBestQuailtyURL() string {
 	return v.GetHighestURL()
 }
 
-//PublishDateTime will return publish date as Time
-func (v *VideoInfo) PublishDateTime() time.Time {
-	res, _ := time.Parse(giantBombTimeFormat, v.PublishDate)
-	return res
+//Game a game
+type Game struct {
+	Aliases                   string          `json:"aliases"`
+	APIDetailURL              string          `json:"api_detail_url"`
+	SiteDetailURL             string          `json:"site_detail_url"`
+	GUID                      string          `json:"guid"`
+	ID                        int             `json:"id"`
+	DateAdded                 Date            `json:"date_added"`
+	DateLastUpdate            Date            `json:"date_last_updated"`
+	Deck                      string          `json:"dec"`
+	Description               string          `json:"description"`
+	ExpectedReleaseDay        int             `json:"expected_release_day"`
+	ExpectedReleaseMonth      int             `json:"expected_release_month"`
+	ExpectedReleaseQuarter    int             `json:"expected_release_quarter"`
+	ExpectedReleaseYear       int             `json:"expected_release_year"`
+	Image                     Image           `json:"image"`
+	ImageTags                 []ImageTag      `json:"image_tags"`
+	Images                    []Image         `json:"images"`
+	Name                      string          `json:"name"`
+	NumberOfUserReviews       int             `json:"number_of_user_reviews"`
+	OriginalGameRating        []GameRatingTag `json:"original_game_rating"`
+	OriginalReleaseDate       Date            `json:"original_release_date"`
+	Platforms                 []PlatformTag   `json:"platforms"`
+	Videos                    []CompleteTag   `json:"videos"`
+	Characters                []CompleteTag   `json:"characters"`
+	Concepts                  []CompleteTag   `json:"concepts"`
+	Developers                []CompleteTag   `json:"developers"`
+	FirstAppearanceCharacters []CompleteTag   `json:"first_appearance_characters"`
+	FirstAppearanceConcepts   []CompleteTag   `json:"first_appearance_concepts"`
+	FirstAppearanceLocations  []CompleteTag   `json:"first_appearance_locations"`
+	FirstAppearancePeople     []CompleteTag   `json:"first_appearance_people"`
+	Franchises                []CompleteTag   `json:"franchises"`
+	Genres                    []CompleteTag   `json:"genres"`
+	KilledCharacters          []CompleteTag   `json:"killed_characters"`
+	Locations                 []CompleteTag   `json:"locations"`
+	Objects                   []CompleteTag   `json:"objects"`
+	Persons                   []CompleteTag   `json:"people"`
+	Publishers                []CompleteTag   `json:"publishers"`
+	Releases                  []CompleteTag   `json:"releases"`
+	DLCS                      []CompleteTag   `json:"dlcs"`
+	Reviews                   []CompleteTag   `json:"reviews"`
+	SimilarGames              []CompleteTag   `json:"similar_games"`
+	Themes                    []CompleteTag   `json:"themes"`
 }
 
 //ResponsePage the page part of a response
@@ -199,12 +325,7 @@ type ResponsePage struct {
 }
 
 //NextOffset returns the next offset
-func (r *ResponsePage) NextOffset() (int, error) {
-	//First call
-	if r.PageResults == 0 {
-		return r.Offset, nil
-	}
-
+func (r *ResponsePage) NextOffset() error {
 	if r.Offset < r.MaxResults {
 		next := r.MaxResults - r.Offset
 		if next > r.Limit {
@@ -213,10 +334,15 @@ func (r *ResponsePage) NextOffset() (int, error) {
 
 		r.Offset += next
 
-		return r.Offset, nil
+		return nil
 	}
 
-	return 0, fmt.Errorf("no more results")
+	return fmt.Errorf("no more results")
+}
+
+//GetOffset returns the next offset
+func (r *ResponsePage) GetOffset() int {
+	return r.Offset
 }
 
 //Complete will return if there are no more results
@@ -231,19 +357,17 @@ type VideosResponse struct {
 }
 
 //Path returns video path
-func (v *VideosResponse) Path() string {
-	return fmt.Sprintf("api/videos")
+func (v *VideosResponse) Path() (string, map[string]string) {
+	return fmt.Sprintf("api/videos"), make(map[string]string)
 }
 
-//Next returns next page for video response
-func (v *VideosResponse) Next(i *Invoker) error {
-	body, err := i.get(v)
+//Parse parse
+func (v *VideosResponse) Parse(data []byte) error {
+	var tmp VideosResponse
+	err := json.Unmarshal(data, &tmp)
 	if err != nil {
 		return err
 	}
-
-	var tmp VideosResponse
-	json.Unmarshal(body, &tmp)
 
 	v.ResponsePage = tmp.ResponsePage
 	v.Videos = tmp.Videos
@@ -255,15 +379,16 @@ func (v *VideosResponse) Next(i *Invoker) error {
 func (i *Invoker) GetVideos(ctx context.Context, offset int) (*VideosResponse, error) {
 	result := &VideosResponse{}
 	result.Offset = offset
-	result.ResponsePage.Limit = 100
-	result.MaxResults = 100
 
 	body, err := i.get(result)
 	if err != nil {
 		return nil, err
 	}
 
-	json.Unmarshal(body, result)
+	err = result.Parse(body)
+	if err != nil {
+		return nil, err
+	}
 
 	return result, nil
 }
@@ -286,6 +411,101 @@ func (i *Invoker) DownloadVideo(ctx context.Context, url string) (io.ReadCloser,
 
 	return res.Body, nil
 }
+
+type gameResponseInternal struct {
+	ResponsePage
+	Results   *Game `json:"results"`
+	tagetGame string
+}
+
+//Path returns video path
+func (g *gameResponseInternal) Path() (string, map[string]string) {
+	return fmt.Sprintf("api/game/%s", g.tagetGame), make(map[string]string)
+}
+
+//Parse parse
+func (g *gameResponseInternal) Parse(data []byte) error {
+	var tmp gameResponseInternal
+	err := json.Unmarshal(data, &tmp)
+	if err != nil {
+		return err
+	}
+
+	g.ResponsePage = tmp.ResponsePage
+	g.Results = tmp.Results
+	g.tagetGame = tmp.tagetGame
+
+	return nil
+}
+
+//GetGame returns a given game
+func (i *Invoker) GetGame(ctx context.Context, gameID string) (*Game, error) {
+	result := &gameResponseInternal{}
+
+	result.tagetGame = gameID
+
+	body, err := i.get(result)
+	if err != nil {
+		return nil, err
+	}
+
+	err = result.Parse(body)
+	if err != nil {
+		return nil, err
+	}
+
+	return result.Results, err
+}
+
+//GamesResponse game response
+type GamesResponse struct {
+	ResponsePage
+	Results   []Game `json:"results"`
+	tagetGame string
+}
+
+//Path returns path for game Serach
+func (g *GamesResponse) Path() (string, map[string]string) {
+	return "api/search", map[string]string{
+		"query":     g.tagetGame,
+		"resources": "game",
+	}
+}
+
+//Parse parse
+func (g *GamesResponse) Parse(data []byte) error {
+	var tmp GamesResponse
+	err := json.Unmarshal(data, &tmp)
+	if err != nil {
+		return err
+	}
+
+	g.ResponsePage = tmp.ResponsePage
+	g.Results = tmp.Results
+
+	return nil
+}
+
+//SearchGame search game
+func (i *Invoker) SearchGame(ctx context.Context, name string) (*GamesResponse, error) {
+	result := &GamesResponse{}
+
+	result.tagetGame = name
+
+	body, err := i.get(result)
+	if err != nil {
+		return nil, err
+	}
+
+	err = result.Parse(body)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+// #####################################################################
 
 //RSSFeedEntry a giant bomb RSS feed entry
 type RSSFeedEntry struct {
