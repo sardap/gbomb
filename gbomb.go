@@ -364,10 +364,7 @@ func (v *VideosResponse) Path() (string, map[string]string) {
 //Parse parse
 func (v *VideosResponse) Parse(data []byte) error {
 	var tmp VideosResponse
-	err := json.Unmarshal(data, &tmp)
-	if err != nil {
-		return err
-	}
+	json.Unmarshal(data, &tmp)
 
 	v.ResponsePage = tmp.ResponsePage
 	v.Videos = tmp.Videos
@@ -385,10 +382,7 @@ func (i *Invoker) GetVideos(ctx context.Context, offset int) (*VideosResponse, e
 		return nil, err
 	}
 
-	err = result.Parse(body)
-	if err != nil {
-		return nil, err
-	}
+	result.Parse(body)
 
 	return result, nil
 }
