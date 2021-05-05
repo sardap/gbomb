@@ -14,8 +14,6 @@ import (
 	"golang.org/x/time/rate"
 )
 
-const giantBombTimeFormat = "2006-01-02 15:04:05"
-
 type httpClient interface {
 	Do(req *http.Request) (*http.Response, error)
 }
@@ -32,7 +30,7 @@ func (i *Invoker) requestLimiter() {
 	i.Limter.Wait(context.TODO())
 }
 
-func (i *Invoker) get(pageable Pageable) ([]byte, error) {
+func (i *Invoker) Get(pageable Pageable) ([]byte, error) {
 	path, query := pageable.Path()
 
 	url := fmt.Sprintf("%s/%s", i.Endpoint, path)
@@ -77,7 +75,7 @@ func (i *Invoker) get(pageable Pageable) ([]byte, error) {
 func (i *Invoker) Next(page Pageable) error {
 	page.NextOffset()
 
-	body, err := i.get(page)
+	body, err := i.Get(page)
 	if err != nil {
 		return err
 	}
@@ -377,7 +375,7 @@ func (i *Invoker) GetVideos(ctx context.Context, offset int) (*VideosResponse, e
 	result := &VideosResponse{}
 	result.Offset = offset
 
-	body, err := i.get(result)
+	body, err := i.Get(result)
 	if err != nil {
 		return nil, err
 	}
@@ -438,7 +436,7 @@ func (i *Invoker) GetGame(ctx context.Context, gameID string) (*Game, error) {
 
 	result.tagetGame = gameID
 
-	body, err := i.get(result)
+	body, err := i.Get(result)
 	if err != nil {
 		return nil, err
 	}
@@ -486,7 +484,7 @@ func (i *Invoker) SearchGame(ctx context.Context, name string) (*GamesResponse, 
 
 	result.tagetGame = name
 
-	body, err := i.get(result)
+	body, err := i.Get(result)
 	if err != nil {
 		return nil, err
 	}
