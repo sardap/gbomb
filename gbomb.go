@@ -73,7 +73,25 @@ func (i *Invoker) Get(pageable Pageable) ([]byte, error) {
 
 //Next gets next page for pageable
 func (i *Invoker) Next(page Pageable) error {
-	page.NextOffset()
+	if err := page.NextOffset(); err != nil {
+		return err
+	}
+
+	body, err := i.Get(page)
+	if err != nil {
+		return err
+	}
+
+	page.Parse(body)
+
+	return nil
+}
+
+//Next gets next page for pageable
+func (i *Invoker) Previous(page Pageable) error {
+	if err := page.PreviousOffset(); err != nil {
+		return err
+	}
 
 	body, err := i.Get(page)
 	if err != nil {
@@ -97,6 +115,7 @@ func CreateInvoker(endpoint, key string) *Invoker {
 //Pageable used for reuqests with many pages
 type Pageable interface {
 	NextOffset() error
+	PreviousOffset() error
 	GetOffset() int
 	Complete() bool
 	Path() (string, map[string]string)
@@ -324,18 +343,33 @@ type ResponsePage struct {
 
 //NextOffset returns the next offset
 func (r *ResponsePage) NextOffset() error {
-	if r.Offset < r.MaxResults {
-		next := r.MaxResults - r.Offset
-		if next > r.Limit {
-			next = r.Limit
-		}
-
-		r.Offset += next
-
-		return nil
+	if r.Offset > r.MaxResults {
+		return fmt.Errorf("no more results")
 	}
 
-	return fmt.Errorf("no more results")
+	next := r.MaxResults - r.Offset
+	if next > r.Limit {
+		next = r.Limit
+	}
+
+	r.Offset += next
+
+	return nil
+
+}
+
+//NextOffset returns the next offset
+func (r *ResponsePage) PreviousOffset() error {
+	if r.Offset-1 < 0 {
+		return fmt.Errorf("no more results")
+	}
+
+	r.Offset -= r.MaxResults
+	if r.Offset < 0 {
+		r.Offset = 0
+	}
+
+	return nil
 }
 
 //GetOffset returns the next offset

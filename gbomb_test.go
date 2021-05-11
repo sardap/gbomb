@@ -181,4 +181,10 @@ func TestSearchGame(t *testing.T) {
 	if err != nil {
 		t.Error(errors.Wrapf(err, "next"))
 	}
+
+	client.expectedURL = "https://www.giantbomb.com/api/search?api_key=coolbeans&format=json&offset=10&query=Bangai-O&resources=game"
+	err = invoker.Previous(result)
+	if err == nil {
+		t.Error(errors.Wrapf(err, "Prevoius"))
+	}
 }
